@@ -63,6 +63,12 @@ public class TemplateContent extends _Parent {
     @FindBy(xpath = "//h3['Dashboard']")
     private WebElement dashboard;
 
+    @FindBy(xpath = "//ms-text-field[@placeholder='GENERAL.FIELD.NAME']/input")
+    private WebElement poSaName;
+
+    @FindBy(xpath = "//ms-browse-search//input")
+    private WebElement poSaSearchName;
+
 
     @FindAll({
             @FindBy(xpath = "//div[@id='toast-container']")
@@ -178,6 +184,12 @@ public class TemplateContent extends _Parent {
                 break;
             case "dashboard":
                 myElement = dashboard;
+                break;
+            case "poSaName":
+                myElement = poSaName;
+                break;
+            case "poSaSearchName":
+                myElement = poSaSearchName;
                 break;
         }
         return myElement;
