@@ -69,6 +69,18 @@ public class TemplateContent extends _Parent {
     @FindBy(xpath = "//ms-browse-search//input")
     private WebElement poSaSearchName;
 
+    @FindBy(xpath = "(//ms-text-field[@placeholder='GENERAL.FIELD.NAME']/input)[2]")
+    private WebElement poName;
+
+    @FindBy(css= "input[placeholder='User Type']")
+    private WebElement userType;
+
+    @FindBy(css= "button[mat-raised-button]")
+    private WebElement saTypeSearch;
+
+    @FindBy(xpath = "//mat-icon[text()='cancel']")
+    private WebElement userTypeCancel;
+
 
     @FindAll({
             @FindBy(xpath = "//div[@id='toast-container']")
@@ -84,13 +96,7 @@ public class TemplateContent extends _Parent {
 
     @FindBy(xpath = "//input[@class='mat-autocomplete-trigger mat-chip-input mat-input-element']")
     private WebElement userTypeDropdown;
-    /*
-        @FindAll({
-                @FindBy(xpath = "//mat-option[@class='mat-option mat-focus-indicator ng-star-inserted']")
-        })
-        public List<WebElement> userTypeAllOptions;
 
-    */
     @FindAll({
             @FindBy(xpath = "//table/tbody/tr/td[2]")
     })
@@ -110,6 +116,11 @@ public class TemplateContent extends _Parent {
             @FindBy(linkText = "Got it!")
     })
     public List<WebElement> gotItBtns;
+
+    @FindAll({
+            @FindBy(css = "mat-option[role='option']")
+    })
+    private List<WebElement> option;
 
     @FindBy(xpath = "//ms-text-field[@formcontrolname='shortName']/input")
     private WebElement shortName;
@@ -185,12 +196,24 @@ public class TemplateContent extends _Parent {
             case "dashboard":
                 myElement = dashboard;
                 break;
-            case "poSaName":
+        /*    case "poSaName":
                 myElement = poSaName;
                 break;
             case "poSaSearchName":
                 myElement = poSaSearchName;
                 break;
+            case "poName":
+                myElement = poName;
+                break;
+            case "userType":
+                myElement = userType;
+                break;
+            case "saTypeSearch":
+                myElement = saTypeSearch;
+                break;
+            case "userTypeCancel":
+                myElement = userTypeCancel;
+                break;*/
         }
         return myElement;
     }
@@ -214,6 +237,9 @@ public class TemplateContent extends _Parent {
                 break;
             case "nameList":
                 myElementList = nameList;
+                break;
+            case "option":
+                myElementList = option;
                 break;
         }
         return myElementList;

@@ -1,58 +1,9 @@
-Feature: Human Resources
+Feature: Human Resources Salary Modifiers
 
   Background: Login
     Given Navigate to basqar
     When Enter username and password and click Login button
     Then User should login successfully
-
-  Scenario: Create a position salary
-    Given Navigate to Position Salary page
-    When Create a position salary as "E-2 position"
-    Then Success message shuld be diplayed
-
-  Scenario: Edit the position salary
-    Given Navigate to Position Salary page
-    When Edit the "E-2 position" to "E-3 position"
-    Then Success message shuld be diplayed
-
-  Scenario: Delete the position salary
-    Given Navigate to Position Salary page
-    When Delete the "E-3 position"
-    Then Success message shuld be diplayed
-
-  Scenario: Create a positions
-    Given Navigate to Positions page
-    When Create a positions as "E-2 position" short name "E-2"
-    Then Success message shuld be diplayed
-
-  Scenario: Edit the positions
-    Given Navigate to Positions page
-    When Edit the "E-2 position" "E-2" to "E-3 position" "E-3"
-    Then Success message shuld be diplayed
-
-  Scenario: Delete the positions
-    Given Navigate to Positions page
-    When Delete the "E-3 position"
-    Then Success message shuld be diplayed
-
-  Scenario: Create a New Salary Type
-    Given Navigate to salary type page
-    When Create a new salary type name as "User_1"
-    And Click and Select options form class
-      | userType | User |
-    Then Success message shuld be diplayed
-
-  Scenario: Edit the salary type
-    Given Navigate to salary type page
-    When Edit the salary type "User_1" to "User_11"
-    And Click and edit options form class
-      | userType | Student |
-    Then Success message shuld be diplayed
-
-  Scenario: Delete the salary type
-    Given Navigate to salary type page
-    When Delete the salary type "User_11"
-    Then Success message shuld be diplayed
 
   Scenario: Create a New Salary Modifiers
     Given Navigate to salary modifiers page
@@ -65,7 +16,7 @@ Feature: Human Resources
 
     And Click and Select options
       | saModifierType | Subtraction |
-      | saModValueType | 0           |
+      | saModValueType |0|
     When Add new modifier variable and fill out the form
       | saModVaName          | Yeni Degisken |
       | saModFormulaVariable | 3             |
