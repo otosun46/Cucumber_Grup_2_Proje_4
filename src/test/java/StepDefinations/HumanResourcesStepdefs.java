@@ -204,7 +204,6 @@ public class HumanResourcesStepdefs {
         humanResourcesContent.findElementAndSendKeysFunction("saModSearchDesc", arg0);
         humanResourcesContent.findElementAndClickFunction("saTypeSearch");
         humanResourcesContent.editAndDeleteFunction(arg0, "edit");
-
     }
 
     @When("^Change the salary modifier information on the form$")
@@ -213,6 +212,7 @@ public class HumanResourcesStepdefs {
         for (int i = 0; i < elementsNameAndValue.size(); i++) {
             humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
         }
+        humanResourcesContent.invisibleElementClick("saveButton");
     }
 
     @Given("^Navigate to Salary Costants page$")

@@ -15,7 +15,7 @@ import java.util.List;
 public class HumanResourcesContent extends _Parent {
     /********************** WEBELEMENT *************************/
 
-    @FindBy(xpath = "//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")
+    @FindBy(xpath = "//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")//TITLE.ADD ifadesinden TITLE cikarildi oncekiler kontrol edilecek
     private WebElement addButton;
 
     @FindBy(xpath = "//div[@id='toast-container']")
@@ -108,6 +108,33 @@ public class HumanResourcesContent extends _Parent {
 
     @FindBy(css = "div[id='cdk-overlay-330']")
     private WebElement newSalaryConstantOverlay;
+
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='name']/input")
+    private WebElement nameInput;
+
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='code']/input")
+    private WebElement codeInput;
+
+    @FindBy(css = "mat-select[formcontrolname='type']")
+    private WebElement coCeType;
+
+    @FindBy(css = "ms-text-field[formcontrolname='orderNo']>input")
+    private WebElement coCeOrderNo;
+
+    @FindBy(css = "mat-chip-list>div>input")
+    private WebElement coCeExAcCoPrefixes;
+
+    @FindBy(xpath = "//ms-add-button[contains(@tooltip,'BUDGET_EXCEL_TEMPLATE.FIELD.ADD')]//button")
+    private WebElement ExcTmpAddButton;
+
+    @FindBy(xpath = "(//ms-text-field[@placeholder='GENERAL.FIELD.NAME']/input)[2]")
+    private WebElement ExcTmpName;
+
+    @FindBy(css = "ms-integer-field[placeholder='BUDGET_EXCEL_TEMPLATE.FIELD.PERIOD_COUNT']>input")
+    private WebElement ExcTmpPeriodCount;
+
+    @FindBy(css = "button[aria-label='Close dialog']")
+    private WebElement closeDiolog;
 
 
     /********************** WEBELEMENTLIST *************************/
@@ -246,6 +273,30 @@ public class HumanResourcesContent extends _Parent {
                 break;
             case "datepickerButton":
                 myElement = datepickerButton;
+                break;
+            case "nameInput":
+                myElement = nameInput;
+                break;
+            case "codeInput":
+                myElement = codeInput;
+                break;
+            case "coCeType":
+                myElement = coCeType;
+                break;
+            case "coCeOrderNo":
+                myElement = coCeOrderNo;
+                break;
+            case "coCeExAcCoPrefixes":
+                myElement = coCeExAcCoPrefixes;
+                break;
+            case "ExcTmpName":
+                myElement = ExcTmpName;
+                break;
+            case "ExcTmpPeriodCount":
+                myElement = ExcTmpPeriodCount;
+                break;
+            case "closeDiolog":
+                myElement = closeDiolog;
                 break;
 
         }

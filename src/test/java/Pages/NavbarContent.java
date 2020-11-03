@@ -65,7 +65,7 @@ public class NavbarContent extends _Parent {
     @FindBy(xpath = "//span[text()='Positions']")
     private WebElement positions;
 
-    @FindBy(xpath = "//span[text()='Reports']")
+    @FindBy(xpath = "(//span[text()='Reports'])[4]")
     private WebElement reports;
 
     @FindBy(xpath = "(//span[text()='Setup'])[7]")
