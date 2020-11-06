@@ -89,8 +89,8 @@ public class NavbarContent extends _Parent {
     @FindBy(xpath = "(//span[text()='Setup'])[6]")
     private WebElement budSetup;
 
-    @FindBy(xpath = "//span[text()='Budget Groups']")
-    private WebElement budgetGroups;
+    @FindBy(xpath = "//span[text()='Budget Accounts']")
+    private WebElement budgetAccounts;
 
     @FindBy(xpath = "//span[text()='Cost Centers']")
     private WebElement costCenters;
@@ -179,8 +179,8 @@ public class NavbarContent extends _Parent {
             case "budSetup":
                 myElement = budSetup;
                 break;
-            case "budgetGroups":
-                myElement = budgetGroups;
+            case "budgetAccounts":
+                myElement = budgetAccounts;
                 break;
             case "costCenters":
                 myElement = costCenters;

@@ -19,11 +19,10 @@ public class BudgetStepdefs {
     NavbarContent navbarContent = new NavbarContent();
     HumanResourcesContent humanResourcesContent = new HumanResourcesContent();
 
-    @Given("^Navigate to Budget Groups page$")
-    public void navigateToBudgetGroupsPage() {
+    @Given("^Navigate to Budget Accounts page$")
+    public void navigateToBudgetAccoundsPage() {
         navbarContent.findElementAndClickFunction("budget");
-        navbarContent.findElementAndClickFunction("budSetup");
-        navbarContent.findElementAndClickFunction("budgetGroups");
+        navbarContent.findElementAndClickFunction("budgetAccounts");
     }
 
     @When("^Create a Budget Groups$")
@@ -66,5 +65,38 @@ public class BudgetStepdefs {
     public void deleteTheCostCenters(String arg0){
         humanResourcesContent.editAndDeleteFunction(arg0, "delete");
         humanResourcesContent.findElementAndClickFunction("yesButton");
+    }
+
+    @When("^Add new Budget Account and fill out the form$")
+    public void addNewBudgetAccountAndFillOutTheForm(DataTable elements) {
+        humanResourcesContent.findElementAndClickFunction("accountAddButton");
+        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
+        for (int i = 0; i < elementsNameAndValue.size(); i++) {
+            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
+        }
+    }
+
+    @When("^Delete the Budget Accounts \"([^\"]*)\"$")
+    public void deleteTheBudgetAccounts(String arg0) {
+        humanResourcesContent.findElementAndSendKeysFunction("saModSearchDesc", arg0);
+        humanResourcesContent.findElementAndClickFunction("saTypeSearch");
+        humanResourcesContent.editAndDeleteFunction(arg0, "delete");
+        humanResourcesContent.findElementAndClickFunction("yesButton");
+    }
+
+    @When("^Edit the Budget Account \"([^\"]*)\"$")
+    public void editTheBudgetAccount(String arg0) {
+        humanResourcesContent.findElementAndSendKeysFunction("saModSearchDesc", arg0);
+        humanResourcesContent.findElementAndClickFunction("saTypeSearch");
+        humanResourcesContent.editAndDeleteFunction(arg0, "edit");
+    }
+
+    @When("^Edit Budget Account and fill out the form$")
+    public void editBudgetAccountAndFillOutTheForm(DataTable elements) {
+        humanResourcesContent.beklet(1000);
+        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
+        for (int i = 0; i < elementsNameAndValue.size(); i++) {
+            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
+        }
     }
 }

@@ -136,6 +136,29 @@ public class HumanResourcesContent extends _Parent {
     @FindBy(css = "button[aria-label='Close dialog']")
     private WebElement closeDiolog;
 
+    @FindBy(css = "mat-select[formcontrolname='category']")
+    private WebElement accountCategory;
+
+    @FindBy(css = "mat-select[formcontrolname='subCategory']")
+    private WebElement accountSubCategory;
+
+    @FindBy(css = "mat-select[formcontrolname='type']")
+    private WebElement accountYype;
+
+    @FindBy(css = "mat-select[formcontrolname='balanceType']")
+    private WebElement accountBalanceType;
+
+    @FindBy(css = "mat-select[formcontrolname='currency']")
+    private WebElement accountCurrency;
+
+    @FindBy(css = "input[formcontrolname='parentAccountCode']")
+    private WebElement parentAccountCode;
+
+    @FindBy(css = "input[placeholder='Integration Codes']")
+    private WebElement integrationCodes;
+
+    @FindBy(xpath = "//ms-add-button[contains(@tooltip,'.ADD')]//button")
+    private WebElement accountAddButton;
 
     /********************** WEBELEMENTLIST *************************/
     @FindAll({
@@ -298,7 +321,30 @@ public class HumanResourcesContent extends _Parent {
             case "closeDiolog":
                 myElement = closeDiolog;
                 break;
-
+            case "accountCategory":
+                myElement = accountCategory;
+                break;
+            case "accountSubCategory":
+                myElement = accountSubCategory;
+                break;
+            case "accountYype":
+                myElement = accountYype;
+                break;
+            case "accountBalanceType":
+                myElement = accountBalanceType;
+                break;
+            case "accountCurrency":
+                myElement = accountCurrency;
+                break;
+            case "parentAccountCode":
+                myElement = parentAccountCode;
+                break;
+            case "integrationCodes":
+                myElement = integrationCodes;
+                break;
+            case "accountAddButton":
+                myElement = accountAddButton;
+                break;
         }
         beklet(250);
         return myElement;

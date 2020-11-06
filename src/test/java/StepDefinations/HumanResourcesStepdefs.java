@@ -264,4 +264,9 @@ public class HumanResourcesStepdefs {
         humanResourcesContent.editAndDeleteFunction(arg0, "delete");
         humanResourcesContent.findElementAndClickFunction("yesButton");
     }
+
+    @And("^Save form$")
+    public void saveForm() {
+        humanResourcesContent.findElementAndClickFunction("saveButton");
+    }
 }
