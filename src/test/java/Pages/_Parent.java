@@ -9,6 +9,7 @@ import Utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -40,6 +41,11 @@ public class _Parent {
         scrollToElement(element);// elemana kadar scroll yap
         element.clear();// eleman clear yap
         element.sendKeys(value);// value yi gönder
+    }
+    public void countrySelect(WebElement element, String country){
+
+        Select menu= new Select(element);
+        menu.selectByVisibleText(country);
     }
 
     public void waitUntilClickable(WebElement element) {
@@ -118,6 +124,10 @@ public class _Parent {
         }
         Assert.assertTrue(element.isDisplayed(), "WebElement bulunamadi.");
         driver.switchTo().window(anasayfaidsi);
+    }
+
+    public void isMyTextDisplayed(WebElement element){
+        Assert.assertTrue(element.isDisplayed(), "WebElement bulunamadi.");
     }
 
     public void verifyTheNumberOfItemsOnTheList(List<WebElement> elementList, int numberOfItems) {
