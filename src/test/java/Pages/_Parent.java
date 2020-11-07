@@ -141,6 +141,15 @@ public class _Parent {
             System.out.println("------------------------------------------------------------");
         }
     }
+    public void pagesClosed(){
 
-
+        Set<String> sayfaidleri = driver.getWindowHandles();
+        String anasayfaidsi = driver.getWindowHandle();
+        for (String s : sayfaidleri) {
+            System.out.println(s);
+            if (!s.equals(anasayfaidsi))
+                driver.switchTo().window(s);
+        }
+        driver.switchTo().window(anasayfaidsi);
+    }
 }

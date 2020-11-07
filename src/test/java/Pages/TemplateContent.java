@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TemplateContent extends _Parent{
+public class TemplateContent extends _Parent {
     @FindBy(id = "mat-input-0")
     private WebElement username;
 
@@ -109,7 +109,7 @@ public class TemplateContent extends _Parent{
     public WebElement cookieConsent;
 
     @FindBy(xpath = "//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")
-    private WebElement addButton; //sorun olursa bunu kullan
+    private WebElement addButton;
 
     @FindBy(xpath = "//ms-text-field[@formcontrolname='name']/input")
     private WebElement nameInput;
@@ -144,6 +144,28 @@ public class TemplateContent extends _Parent{
     @FindBy(css = "div[role=alertdialog]")
     private WebElement alertdialog;
 
+    @FindBy(xpath = "//h3['Dashboard']")
+    private WebElement dashboard;
+
+    @FindBy(xpath = "//ms-text-field[@placeholder='GENERAL.FIELD.NAME']/input")
+    private WebElement poSaName;
+
+    @FindBy(xpath = "//ms-browse-search//input")
+    private WebElement poSaSearchName;
+
+    @FindBy(xpath = "(//ms-text-field[@placeholder='GENERAL.FIELD.NAME']/input)[2]")
+    private WebElement poName;
+
+    @FindBy(css= "input[placeholder='User Type']")
+    private WebElement userType;
+
+    @FindBy(css= "button[mat-raised-button]")
+    private WebElement saTypeSearch;
+
+    @FindBy(xpath = "//mat-icon[text()='cancel']")
+    private WebElement userTypeCancel;
+
+
     @FindAll({
             @FindBy(xpath = "//div[@id='toast-container']")
     })
@@ -164,15 +186,8 @@ public class TemplateContent extends _Parent{
     public List<WebElement> countryOfTheCityDropDown;
 
     @FindBy(xpath = "//input[@class='mat-autocomplete-trigger mat-chip-input mat-input-element']")
-// "//button[@class='mat-autocomplete-trigger mat-chip-input mat-input-element']")
     private WebElement userTypeDropdown;
-    /*
-        @FindAll({
-                @FindBy(xpath = "//mat-option[@class='mat-option mat-focus-indicator ng-star-inserted']")
-        })
-        public List<WebElement> userTypeAllOptions;
 
-    */
     @FindAll({
             @FindBy(xpath = "//table/tbody/tr/td[2]")
     })
@@ -192,6 +207,11 @@ public class TemplateContent extends _Parent{
             @FindBy(linkText = "Got it!")
     })
     public List<WebElement> gotItBtns;
+
+    @FindAll({
+            @FindBy(css = "mat-option[role='option']")
+    })
+    private List<WebElement> option;
 
     @FindBy(xpath = "//ms-text-field[@formcontrolname='shortName']/input")
     private WebElement shortName;
@@ -213,16 +233,9 @@ public class TemplateContent extends _Parent{
             case "loginButton":
                 myElement = loginButton;
                 break;
-
-            case "gotItBtn":    //Buradaki sorunu LoginStepste cookieConsent elemaninin gorunur olmasini sorgulayarak cozdum
-                // bu eleman yok ise çoklu olarak yinede bulduk
-                // eğer gerçekten yok ise size 0 olacağı için
-                // bekletmeye düşmesin diye fonksiyonu geri gönderdik.
-//                if (gotItBtns.size() == 0)
-//                    return;
+            case "gotItBtn":
                 myElement = gotItBtn;
                 break;
-
             case "addButton":
                 myElement = addButton;
                 break;
@@ -244,10 +257,10 @@ public class TemplateContent extends _Parent{
             case "username":
                 myElement = username;
                 break;
-
             case "password":
                 myElement = password;
                 break;
+
 
             case "setupOne":
                 myElement = setupOne;
@@ -354,15 +367,12 @@ public class TemplateContent extends _Parent{
             case "nameInput":
                 myElement = nameInput;
                 break;
-
             case "codeInput":
                 myElement = codeInput;
                 break;
-
             case "shortName":
                 myElement = shortName;
                 break;
-
             case "searchNameInput":
                 myElement = searchNameInput;
                 break;
@@ -377,14 +387,35 @@ public class TemplateContent extends _Parent{
             case "msjContainer":
                 myElement = msjContainer;
                 break;
-
             case "errorMessage":
                 myElement = errorMessage;
                 break;
+            case "dashboard":
+                myElement = dashboard;
+                break;
+        /*    case "poSaName":
+                myElement = poSaName;
+                break;
+            case "poSaSearchName":
+                myElement = poSaSearchName;
+                break;
+            case "poName":
+                myElement = poName;
+                break;
+            case "userType":
+                myElement = userType;
+                break;
+            case "saTypeSearch":
+                myElement = saTypeSearch;
+                break;
+            case "userTypeCancel":
+                myElement = userTypeCancel;
+                break;*/
         }
         beklet(250);
         return myElement;
     }
+
     /**
      * Parametre olarak ismi girilen WebElementListi dondurur.
      *
@@ -406,12 +437,18 @@ public class TemplateContent extends _Parent{
                 myElementList = nameList;
                 break;
 
+
             case "countryOfTheCityDropDown":
                 myElementList = countryOfTheCityDropDown;
+
+            case "option":
+                myElementList = option;
+
                 break;
         }
         return myElementList;
     }
+
     /**
      * Bu metod steps classtan calistirilacak parametre olarak string olarak tiklanacak WebElementin ismini alir.
      *
@@ -441,6 +478,7 @@ public class TemplateContent extends _Parent{
      * Parametre olarak seceneklerin oldugu WebElementListesinin adini ve secim kriterini string olarak alir.
      * Secim parametresi sayi olursa index olarak degerlendirilir ve o indexli WebElement secilir.
      * Parametre sayi degilse WebElementin texti ile karsilastirilir ve kapsayan WebElement secilir.
+     *
      * @param listName
      * @param secenek
      */
@@ -450,6 +488,7 @@ public class TemplateContent extends _Parent{
 
     /**
      * Parametre olarak ismi gonderilen WebElementi bulur ve gorundugunu dogrular.
+     *
      * @param elementName
      */
     public void findElementAndVerifyDisplayed(String elementName) {
@@ -459,6 +498,7 @@ public class TemplateContent extends _Parent{
     /**
      * Parametre olarak ismi gonderilen WebElementi bulur ve
      * parametre olarak giriilen msg nin WebElementin textinde bulundugunu dogrular.
+     *
      * @param elementName
      * @param msg
      */
@@ -468,6 +508,7 @@ public class TemplateContent extends _Parent{
 
     /**
      * Parametre olarak ismi girilen WebElementListin butun elemanlarina clickFunctioni uygular.
+     *
      * @param listName
      */
     public void findElementListAndClickToAllElement(String listName) {
@@ -479,6 +520,7 @@ public class TemplateContent extends _Parent{
     /**
      * Parametre olarak ismi girilen WebElementListin ikinci parametrede girilen sayi kadar elemana sahip oldugu dogrulanir.
      * Ikinci parametre "0" girilirse listedeki elemenlari yazdirir.
+     *
      * @param elementName
      * @param numberOfItems
      */
@@ -502,12 +544,13 @@ public class TemplateContent extends _Parent{
         System.out.println("List printing finished");
         System.out.println("************************************************************");
     }
+
     public void editAndDeleteFunction(String countryName, String editOrDelete) {
         List<WebElement> btnList = new ArrayList<>();
         // invisible olma beklemesini, display ise şartına bağladık, yani
         // gözüküyorsa kaybolana kadar bekle.
 
-        if (msjContainers.size()>0) {
+        if (msjContainers.size() > 0) {
             if (msjContainer.isDisplayed())
                 wait.until(ExpectedConditions.invisibilityOfAllElements(msjContainer));
         }
