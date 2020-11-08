@@ -14,7 +14,7 @@ import cucumber.api.java.en.When;
 
 import java.util.List;
 
-public class BudgetStepdefs {
+public class _07_BudgetStepdefs {
     TemplateContent templateContent= new TemplateContent();
     NavbarContent navbarContent = new NavbarContent();
     HumanResourcesContent humanResourcesContent = new HumanResourcesContent();

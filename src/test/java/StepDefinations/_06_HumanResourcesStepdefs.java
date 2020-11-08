@@ -7,7 +7,6 @@ import Pages.HumanResourcesContent;
 import Pages.NavbarContent;
 import Pages.TemplateContent;
 import cucumber.api.DataTable;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -15,7 +14,7 @@ import cucumber.api.java.en.When;
 
 import java.util.List;
 
-public class HumanResourcesStepdefs {
+public class _06_HumanResourcesStepdefs {
     TemplateContent templateContent= new TemplateContent();
     NavbarContent navbarContent = new NavbarContent();
     HumanResourcesContent humanResourcesContent = new HumanResourcesContent();
@@ -105,13 +104,14 @@ public class HumanResourcesStepdefs {
 
     @And("^Click and Select options form class$")
     public void clickAndSelectOptionsFormClass(DataTable elements) {
-        List<String> elementsToClick = elements.asList(String.class);
-        for (int i = 0; i < elementsToClick.size(); i++) {
-            System.out.println(elementsToClick.get(i));
-            humanResourcesContent.findElementAndClickFunction(elementsToClick.get(i));
-            i++;
-            humanResourcesContent.findElementAndSelectOption("option", elementsToClick.get(i));
-        }
+//        List<String> elementsToClick = elements.asList(String.class);
+//        for (int i = 0; i < elementsToClick.size(); i++) {
+//            System.out.println(elementsToClick.get(i));
+//            humanResourcesContent.findElementAndClickFunction(elementsToClick.get(i));
+//            i++;
+//            humanResourcesContent.findElementAndSelectOption("option", elementsToClick.get(i));
+//        }
+        humanResourcesContent.usingElementsInTheDataTableAndSendKeysSelectOptions(elements,"option");
         humanResourcesContent.findElementAndClickFunction("saveButton");
     }
 
@@ -154,35 +154,32 @@ public class HumanResourcesStepdefs {
     @When("^Add new salary modifier and fill out the form$")
     public void addNewSalaryModifierAndFillOutTheForm(DataTable elements) {
         humanResourcesContent.findElementAndClickFunction("addButton");
-        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
-        System.out.println("List size= "+elementsNameAndValue.size());
-
-        for (int i = 0; i < elementsNameAndValue.size(); i++) {
-//            System.out.println(elementsNameAndValue.get(i).get(0)); // elemanın adı
-//            System.out.println(elementsNameAndValue.get(i).get(1)); // elemana gönderilecek değer
-            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
-        }
+//        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
+//        System.out.println("List size= "+elementsNameAndValue.size());
+//
+//        for (int i = 0; i < elementsNameAndValue.size(); i++) {
+//            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
+//        }
+        humanResourcesContent.usingElementsInTheDataTableAndSendKeys(elements);
 
     }
 
     @And("^Click and Select options$")
     public void clickAndSelectOptions(DataTable elements) {
-        List<String> elementsToClick = elements.asList(String.class);
-        for (int i = 0; i < elementsToClick.size(); i++) {
-            System.out.println(elementsToClick.get(i));
-            humanResourcesContent.findElementAndClickFunction(elementsToClick.get(i));
-            i++;
-            humanResourcesContent.findElementAndSelectOption("option", elementsToClick.get(i));
-        }
+//        List<String> elementsToClick = elements.asList(String.class);
+//        for (int i = 0; i < elementsToClick.size(); i++) {
+//            System.out.println(elementsToClick.get(i));
+//            humanResourcesContent.findElementAndClickFunction(elementsToClick.get(i));
+//            i++;
+//            humanResourcesContent.findElementAndSelectOption("option", elementsToClick.get(i));
+//        }
+        humanResourcesContent.usingElementsInTheDataTableAndSendKeysSelectOptions(elements,"option");
     }
 
     @When("^Add new modifier variable and fill out the form$")
     public void addNewModifierVariableAndFillOutTheForm(DataTable elements) {
         humanResourcesContent.findElementAndClickFunction("saModVaAdd");
-        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
-        for (int i = 0; i < elementsNameAndValue.size(); i++) {
-            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
-        }
+        humanResourcesContent.usingElementsInTheDataTableAndSendKeys(elements);
     }
 
     @And("^Apply changes and save$")
@@ -208,10 +205,11 @@ public class HumanResourcesStepdefs {
 
     @When("^Change the salary modifier information on the form$")
     public void changeTheSalaryModifierInformationOnTheForm(DataTable elements) {
-        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
-        for (int i = 0; i < elementsNameAndValue.size(); i++) {
-            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
-        }
+//        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
+//        for (int i = 0; i < elementsNameAndValue.size(); i++) {
+//            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
+//        }
+        humanResourcesContent.usingElementsInTheDataTableAndSendKeys(elements);
         humanResourcesContent.invisibleElementClick("saveButton");
     }
 
@@ -225,11 +223,11 @@ public class HumanResourcesStepdefs {
     @When("^Add new Salary Costant and fill out the form$")
     public void addNewSalaryCostantAndFillOutTheForm(DataTable elements) {
         humanResourcesContent.findElementAndClickFunction("addButton");
-        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
-        for (int i = 0; i < elementsNameAndValue.size(); i++) {
-            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
-        }
-      //  humanResourcesContent.invisibleElementClick("saveButton");
+//        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
+//        for (int i = 0; i < elementsNameAndValue.size(); i++) {
+//            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
+//        }
+        humanResourcesContent.usingElementsInTheDataTableAndSendKeys(elements);
     }
 
     @When("^Click \"([^\"]*)\" and send Date \"([^\"]*)\"$")
@@ -237,8 +235,6 @@ public class HumanResourcesStepdefs {
         humanResourcesContent.findElementAndClickFunction(arg0);
         humanResourcesContent.findElementAndSendKeysFunction(arg0,arg1);
         humanResourcesContent.findElementAndSelectOption("dayOfMonth","1");
-        //  humanResourcesContent.invisibleElementClick("saveButton");
-        //  humanResourcesContent.findElementAndClickFunction("saCoName");
         humanResourcesContent.findElementAndClickFunction("saveButton");
     }
 
@@ -251,10 +247,11 @@ public class HumanResourcesStepdefs {
 
     @When("^Edit the Salary Costant and fill out the form$")
     public void editTheSalaryCostantAndFillOutTheForm(DataTable elements) {
-        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
-        for (int i = 0; i < elementsNameAndValue.size(); i++) {
-            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
-        }
+//        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
+//        for (int i = 0; i < elementsNameAndValue.size(); i++) {
+//            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
+//        }
+        humanResourcesContent.usingElementsInTheDataTableAndSendKeys(elements);
     }
 
     @When("^Delete the Salary Constants \"([^\"]*)\"$")

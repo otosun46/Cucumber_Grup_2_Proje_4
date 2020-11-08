@@ -35,8 +35,6 @@ public class TemplateContent extends _Parent {
     @FindBy(xpath = "(//span[text()='Countries'])[1]")
     private WebElement Countries;
 
-
-
     @FindBy(xpath = "//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")
     private WebElement countryAdd;
 
@@ -47,8 +45,8 @@ public class TemplateContent extends _Parent {
     private WebElement countryAddCode;
 
 
-    @FindBy(xpath ="//*[@data-icon='trash-alt']")
-    private  WebElement deleteButton;
+    @FindBy(xpath = "//*[@data-icon='trash-alt']")
+    private WebElement deleteButton;
 
 
     @FindBy(xpath = "(//span[text()='Cities'])[1]")
@@ -60,9 +58,6 @@ public class TemplateContent extends _Parent {
     @FindBy(xpath = "(//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button)[2]")
     private WebElement cityAdd2;
 
-
-
-
     @FindBy(xpath = "//mat-form-field[@formgroupname='country']")
     private WebElement countryOfTheCity;
 
@@ -71,16 +66,6 @@ public class TemplateContent extends _Parent {
 
     @FindBy(xpath = "//ms-save-button//button")
     private WebElement citySaveButton;
-
-
-
-
-
-
-
-
-
-
 
     @FindBy(xpath = "(//ms-text-field[@placeholder='GENERAL.FIELD.NAME']/input)[3]")
     private WebElement countryNameInput;
@@ -93,17 +78,6 @@ public class TemplateContent extends _Parent {
 
     @FindBy(xpath = "(//ms-text-field[@placeholder='GENERAL.FIELD.NAME']/input)[2]")
     private WebElement cityNameInput;
-
-
-
-
-
-
-
-
-
-
-
 
     @FindBy(id = "cookieconsent")
     public WebElement cookieConsent;
@@ -129,9 +103,6 @@ public class TemplateContent extends _Parent {
     @FindBy(xpath = "//ms-save-button//button")
     private WebElement saveButton;
 
-
-
-
     @FindBy(xpath = "//ms-search-button//button")
     private WebElement searchButton;
 
@@ -156,15 +127,14 @@ public class TemplateContent extends _Parent {
     @FindBy(xpath = "(//ms-text-field[@placeholder='GENERAL.FIELD.NAME']/input)[2]")
     private WebElement poName;
 
-    @FindBy(css= "input[placeholder='User Type']")
+    @FindBy(css = "input[placeholder='User Type']")
     private WebElement userType;
 
-    @FindBy(css= "button[mat-raised-button]")
+    @FindBy(css = "button[mat-raised-button]")
     private WebElement saTypeSearch;
 
     @FindBy(xpath = "//mat-icon[text()='cancel']")
     private WebElement userTypeCancel;
-
 
     @FindAll({
             @FindBy(xpath = "//div[@id='toast-container']")
@@ -260,110 +230,57 @@ public class TemplateContent extends _Parent {
             case "password":
                 myElement = password;
                 break;
-
-
             case "setupOne":
                 myElement = setupOne;
                 break;
-
             case "parameters":
                 myElement = parameters;
                 break;
-
             case "Countries":
                 myElement = Countries;
                 break;
-
-
             case "countryAdd":
                 myElement = countryAdd;
                 break;
-
             case "countryAddName":
                 myElement = countryAddName;
                 break;
-
             case "countryAddCode":
                 myElement = countryAddCode;
                 break;
-
-
             case "deleteButton":
                 myElement = deleteButton;
                 break;
-
             case "Cities":
                 myElement = Cities;
                 break;
-
             case "cityAdd":
                 myElement = cityAdd;
                 break;
-
             case "cityAdd2":
                 myElement = cityAdd2;
                 break;
-
             case "countryOfTheCity":
                 myElement = countryOfTheCity;
                 break;
-
             case "cityAddName":
                 myElement = cityAddName;
                 break;
-
             case "citySaveButton":
                 myElement = citySaveButton;
                 break;
-
-
-
-
-
-
-
-
             case "countryNameInput":
                 myElement = countryNameInput;
                 break;
-
             case "countryCodeInput":
                 myElement = countryCodeInput;
                 break;
-
             case "countrySaveButton":
                 myElement = countrySaveButton;
                 break;
-
             case "cityNameInput":
                 myElement = cityNameInput;
                 break;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             case "nameInput":
                 myElement = nameInput;
                 break;
@@ -382,8 +299,6 @@ public class TemplateContent extends _Parent {
             case "priorityInput":
                 myElement = priorityInput;
                 break;
-
-
             case "msjContainer":
                 myElement = msjContainer;
                 break;
@@ -393,24 +308,6 @@ public class TemplateContent extends _Parent {
             case "dashboard":
                 myElement = dashboard;
                 break;
-        /*    case "poSaName":
-                myElement = poSaName;
-                break;
-            case "poSaSearchName":
-                myElement = poSaSearchName;
-                break;
-            case "poName":
-                myElement = poName;
-                break;
-            case "userType":
-                myElement = userType;
-                break;
-            case "saTypeSearch":
-                myElement = saTypeSearch;
-                break;
-            case "userTypeCancel":
-                myElement = userTypeCancel;
-                break;*/
         }
         beklet(250);
         return myElement;
@@ -436,14 +333,11 @@ public class TemplateContent extends _Parent {
             case "nameList":
                 myElementList = nameList;
                 break;
-
-
             case "countryOfTheCityDropDown":
                 myElementList = countryOfTheCityDropDown;
 
             case "option":
                 myElementList = option;
-
                 break;
         }
         return myElementList;
@@ -468,7 +362,7 @@ public class TemplateContent extends _Parent {
         sendKeysFunction(findWebElement(element), value);
     }
 
-    public void findElementAndSelectFunction(String element, String countryName){
+    public void findElementAndSelectFunction(String element, String countryName) {
 
         countrySelect(findWebElement(element), countryName);
     }

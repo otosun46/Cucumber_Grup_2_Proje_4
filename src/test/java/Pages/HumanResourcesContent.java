@@ -3,6 +3,7 @@
  */
 package Pages;
 
+import cucumber.api.DataTable;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -125,7 +126,7 @@ public class HumanResourcesContent extends _Parent {
     private WebElement coCeExAcCoPrefixes;
 
     @FindBy(xpath = "//ms-add-button[contains(@tooltip,'BUDGET_EXCEL_TEMPLATE.FIELD.ADD')]//button")
-    private WebElement ExcTmpAddButton;
+    private WebElement excTmpAddButton;
 
     @FindBy(xpath = "(//ms-text-field[@placeholder='GENERAL.FIELD.NAME']/input)[2]")
     private WebElement ExcTmpName;
@@ -345,6 +346,9 @@ public class HumanResourcesContent extends _Parent {
             case "accountAddButton":
                 myElement = accountAddButton;
                 break;
+            case "excTmpAddButton":
+                myElement = excTmpAddButton;
+                break;
         }
         beklet(250);
         return myElement;
@@ -460,6 +464,21 @@ public class HumanResourcesContent extends _Parent {
     public void invisibleElementClick(String element){
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", findWebElement(element));
+    }
+
+    public void usingElementsInTheDataTableAndSendKeys(DataTable elements) {
+        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
+        for (int i = 0; i < elementsNameAndValue.size(); i++) {
+            findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
+        }
+    }
+    public void usingElementsInTheDataTableAndSendKeysSelectOptions(DataTable elements,String listName) {
+        List<String> elementsName = elements.asList(String.class);
+        for (int i = 0; i < elementsName.size(); i++) {
+            findElementAndClickFunction(elementsName.get(i));
+            i++;
+            findElementAndSelectOption(listName, elementsName.get(i));
+        }
     }
 }
 

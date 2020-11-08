@@ -13,7 +13,7 @@ import cucumber.api.java.en.When;
 
 import java.util.List;
 
-public class ReportsStepdefs {
+public class _08_ReportsStepdefs {
     TemplateContent templateContent= new TemplateContent();
     NavbarContent navbarContent = new NavbarContent();
     HumanResourcesContent humanResourcesContent = new HumanResourcesContent();
@@ -27,7 +27,7 @@ public class ReportsStepdefs {
 
     @When("^Add new Excel Template and fill out the form$")
     public void addNewExcelTemplateAndFillOutTheForm(DataTable elements) {
-        humanResourcesContent.findElementAndClickFunction("addButton");
+        humanResourcesContent.findElementAndClickFunction("excTmpAddButton");
         List<List<String>> elementsNameAndValue = elements.asLists(String.class);
         System.out.println("List size= "+elementsNameAndValue.size());
 
