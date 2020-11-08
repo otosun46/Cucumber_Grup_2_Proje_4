@@ -15,7 +15,7 @@ import cucumber.api.java.en.When;
 import java.util.List;
 
 public class _07_BudgetStepdefs {
-    TemplateContent templateContent= new TemplateContent();
+
     NavbarContent navbarContent = new NavbarContent();
     HumanResourcesContent humanResourcesContent = new HumanResourcesContent();
 
@@ -23,10 +23,6 @@ public class _07_BudgetStepdefs {
     public void navigateToBudgetAccoundsPage() {
         navbarContent.findElementAndClickFunction("budget");
         navbarContent.findElementAndClickFunction("budgetAccounts");
-    }
-
-    @When("^Create a Budget Groups$")
-    public void createABudgetGroups() {
     }
 
     @Given("^Navigate to Cost Centers page$")
@@ -39,21 +35,12 @@ public class _07_BudgetStepdefs {
     @When("^Add new Cost Centers and fill out the form$")
     public void addNewCostCentersAndFillOutTheForm(DataTable elements) {
         humanResourcesContent.findElementAndClickFunction("addButton");
-        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
-        System.out.println("List size= "+elementsNameAndValue.size());
-
-        for (int i = 0; i < elementsNameAndValue.size(); i++) {
-            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
-        }
-
+        humanResourcesContent.usingElementsInTheDataTableAndSendKeys(elements);
     }
 
     @When("^Edit the Cost Centers and fill out the form$")
     public void editTheCostCentersAndFillOutTheForm(DataTable elements) {
-        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
-        for (int i = 0; i < elementsNameAndValue.size(); i++) {
-            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
-        }
+        humanResourcesContent.usingElementsInTheDataTableAndSendKeys(elements);
     }
 
     @And("^Edit the Cost Centers \"([^\"]*)\"$")
@@ -62,7 +49,7 @@ public class _07_BudgetStepdefs {
     }
 
     @When("^Delete the Cost Centers \"([^\"]*)\"$")
-    public void deleteTheCostCenters(String arg0){
+    public void deleteTheCostCenters(String arg0) {
         humanResourcesContent.editAndDeleteFunction(arg0, "delete");
         humanResourcesContent.findElementAndClickFunction("yesButton");
     }
@@ -70,10 +57,7 @@ public class _07_BudgetStepdefs {
     @When("^Add new Budget Account and fill out the form$")
     public void addNewBudgetAccountAndFillOutTheForm(DataTable elements) {
         humanResourcesContent.findElementAndClickFunction("accountAddButton");
-        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
-        for (int i = 0; i < elementsNameAndValue.size(); i++) {
-            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
-        }
+        humanResourcesContent.usingElementsInTheDataTableAndSendKeys(elements);
     }
 
     @When("^Delete the Budget Accounts \"([^\"]*)\"$")
@@ -93,10 +77,6 @@ public class _07_BudgetStepdefs {
 
     @When("^Edit Budget Account and fill out the form$")
     public void editBudgetAccountAndFillOutTheForm(DataTable elements) {
-        humanResourcesContent.beklet(1000);
-        List<List<String>> elementsNameAndValue = elements.asLists(String.class);
-        for (int i = 0; i < elementsNameAndValue.size(); i++) {
-            humanResourcesContent.findElementAndSendKeysFunction(elementsNameAndValue.get(i).get(0), elementsNameAndValue.get(i).get(1));
-        }
+        humanResourcesContent.usingElementsInTheDataTableAndSendKeys(elements);
     }
 }
