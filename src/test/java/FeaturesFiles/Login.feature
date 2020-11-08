@@ -1,6 +1,6 @@
-Feature: Login Functionality
-
+Feature: Login
   Scenario: Login with valid username and password
+
 
     Given Navigate to basqar
 

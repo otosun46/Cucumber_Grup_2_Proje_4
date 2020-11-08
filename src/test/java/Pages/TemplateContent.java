@@ -3,10 +3,12 @@
  */
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,59 @@ public class TemplateContent extends _Parent {
 
     @FindBy(linkText = "Got it!")
     public WebElement gotItBtn;
+
+    @FindBy(xpath = "(//span[text()='Setup'])[1]")
+    private WebElement setupOne;
+
+    @FindBy(xpath = "//span[text()='Parameters']")
+    private WebElement parameters;
+
+    @FindBy(xpath = "(//span[text()='Countries'])[1]")
+    private WebElement Countries;
+
+    @FindBy(xpath = "//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")
+    private WebElement countryAdd;
+
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='name']/input")
+    private WebElement countryAddName;
+
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='code']/input")
+    private WebElement countryAddCode;
+
+
+    @FindBy(xpath = "//*[@data-icon='trash-alt']")
+    private WebElement deleteButton;
+
+
+    @FindBy(xpath = "(//span[text()='Cities'])[1]")
+    private WebElement Cities;
+
+    @FindBy(xpath = "//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")
+    private WebElement cityAdd;
+
+    @FindBy(xpath = "(//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button)[2]")
+    private WebElement cityAdd2;
+
+    @FindBy(xpath = "//mat-form-field[@formgroupname='country']")
+    private WebElement countryOfTheCity;
+
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='name']/input")
+    private WebElement cityAddName;
+
+    @FindBy(xpath = "//ms-save-button//button")
+    private WebElement citySaveButton;
+
+    @FindBy(xpath = "(//ms-text-field[@placeholder='GENERAL.FIELD.NAME']/input)[3]")
+    private WebElement countryNameInput;
+
+    @FindBy(xpath = "//ms-text-field[@placeholder='GENERAL.FIELD.CODE']/input")
+    private WebElement countryCodeInput;
+
+    @FindBy(xpath = "(//ms-save-button//button)[2]")
+    private WebElement countrySaveButton;
+
+    @FindBy(xpath = "(//ms-text-field[@placeholder='GENERAL.FIELD.NAME']/input)[2]")
+    private WebElement cityNameInput;
 
     @FindBy(id = "cookieconsent")
     public WebElement cookieConsent;
@@ -54,7 +109,7 @@ public class TemplateContent extends _Parent {
     @FindBy(xpath = "//div[@id='toast-container']")
     private WebElement msjContainer;
 
-    @FindBy(xpath = "//span[text()=' Yes ']")
+    @FindBy(xpath = "//span[text()=' Yes ']")                 //Boşluk nereden geliyor?
     private WebElement yesButton;
 
     @FindBy(css = "div[role=alertdialog]")
@@ -72,15 +127,14 @@ public class TemplateContent extends _Parent {
     @FindBy(xpath = "(//ms-text-field[@placeholder='GENERAL.FIELD.NAME']/input)[2]")
     private WebElement poName;
 
-    @FindBy(css= "input[placeholder='User Type']")
+    @FindBy(css = "input[placeholder='User Type']")
     private WebElement userType;
 
-    @FindBy(css= "button[mat-raised-button]")
+    @FindBy(css = "button[mat-raised-button]")
     private WebElement saTypeSearch;
 
     @FindBy(xpath = "//mat-icon[text()='cancel']")
     private WebElement userTypeCancel;
-
 
     @FindAll({
             @FindBy(xpath = "//div[@id='toast-container']")
@@ -93,6 +147,13 @@ public class TemplateContent extends _Parent {
             }
     )
     public List<WebElement> userTypeAllOptions;
+
+    @FindAll(
+            {
+                    @FindBy(css = "mat-option[role='option']")
+            }
+    )
+    public List<WebElement> countryOfTheCityDropDown;
 
     @FindBy(xpath = "//input[@class='mat-autocomplete-trigger mat-chip-input mat-input-element']")
     private WebElement userTypeDropdown;
@@ -169,6 +230,57 @@ public class TemplateContent extends _Parent {
             case "password":
                 myElement = password;
                 break;
+            case "setupOne":
+                myElement = setupOne;
+                break;
+            case "parameters":
+                myElement = parameters;
+                break;
+            case "Countries":
+                myElement = Countries;
+                break;
+            case "countryAdd":
+                myElement = countryAdd;
+                break;
+            case "countryAddName":
+                myElement = countryAddName;
+                break;
+            case "countryAddCode":
+                myElement = countryAddCode;
+                break;
+            case "deleteButton":
+                myElement = deleteButton;
+                break;
+            case "Cities":
+                myElement = Cities;
+                break;
+            case "cityAdd":
+                myElement = cityAdd;
+                break;
+            case "cityAdd2":
+                myElement = cityAdd2;
+                break;
+            case "countryOfTheCity":
+                myElement = countryOfTheCity;
+                break;
+            case "cityAddName":
+                myElement = cityAddName;
+                break;
+            case "citySaveButton":
+                myElement = citySaveButton;
+                break;
+            case "countryNameInput":
+                myElement = countryNameInput;
+                break;
+            case "countryCodeInput":
+                myElement = countryCodeInput;
+                break;
+            case "countrySaveButton":
+                myElement = countrySaveButton;
+                break;
+            case "cityNameInput":
+                myElement = cityNameInput;
+                break;
             case "nameInput":
                 myElement = nameInput;
                 break;
@@ -196,25 +308,8 @@ public class TemplateContent extends _Parent {
             case "dashboard":
                 myElement = dashboard;
                 break;
-        /*    case "poSaName":
-                myElement = poSaName;
-                break;
-            case "poSaSearchName":
-                myElement = poSaSearchName;
-                break;
-            case "poName":
-                myElement = poName;
-                break;
-            case "userType":
-                myElement = userType;
-                break;
-            case "saTypeSearch":
-                myElement = saTypeSearch;
-                break;
-            case "userTypeCancel":
-                myElement = userTypeCancel;
-                break;*/
         }
+        beklet(250);
         return myElement;
     }
 
@@ -238,6 +333,9 @@ public class TemplateContent extends _Parent {
             case "nameList":
                 myElementList = nameList;
                 break;
+            case "countryOfTheCityDropDown":
+                myElementList = countryOfTheCityDropDown;
+
             case "option":
                 myElementList = option;
                 break;
@@ -264,6 +362,11 @@ public class TemplateContent extends _Parent {
         sendKeysFunction(findWebElement(element), value);
     }
 
+    public void findElementAndSelectFunction(String element, String countryName) {
+
+        countrySelect(findWebElement(element), countryName);
+    }
+
     /**
      * Bu metod steps classindan cagrilir.
      * Parametre olarak seceneklerin oldugu WebElementListesinin adini ve secim kriterini string olarak alir.
@@ -283,7 +386,7 @@ public class TemplateContent extends _Parent {
      * @param elementName
      */
     public void findElementAndVerifyDisplayed(String elementName) {
-        verifyMyElementIsDisplayed(findWebElement(elementName));
+        isMyTextDisplayed(findWebElement(elementName));
     }
 
     /**

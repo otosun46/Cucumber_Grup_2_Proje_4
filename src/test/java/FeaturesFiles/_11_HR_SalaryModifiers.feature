@@ -9,7 +9,7 @@ Feature: Human Resources Salary Modifiers
     Given Navigate to salary modifiers page
     When Add new salary modifier and fill out the form
       | saModDescription     | Katsayi |
-      | saModVariable        | 2       |
+      | saModVariable        | 6       |
       | saModIntegrationCode | 2.3     |
       | saModPriority        | 5       |
       | saModAmount          | 250     |
@@ -30,7 +30,7 @@ Feature: Human Resources Salary Modifiers
     When Edit the Salary Modifier "Katsayi"
     When Change the salary modifier information on the form
       | saModDescription     | Katsayi1 |
-      | saModVariable        | 3        |
+      | saModVariable        | 6        |
       | saModIntegrationCode | 2.3      |
       | saModPriority        | 5        |
       | saModAmount          | 500      |
