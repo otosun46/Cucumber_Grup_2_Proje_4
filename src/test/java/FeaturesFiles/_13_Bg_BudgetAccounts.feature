@@ -4,7 +4,7 @@ Feature: Budget Budget Accounts
     Given Navigate to basqar
     When Enter username and password and click Login button
     Then User should login successfully
-
+  @Regression
   Scenario: Create a Budget Account
     Given Navigate to Budget Accounts page
     When Add new Budget Account and fill out the form
@@ -17,7 +17,7 @@ Feature: Budget Budget Accounts
       | accountCurrency    | 1      |
     And  Save form
     Then Success message shuld be diplayed
-
+  @Regression
   Scenario: Edit The Budget Account
     Given Navigate to Budget Accounts page
     When Edit the Budget Account "Maas"
@@ -31,7 +31,7 @@ Feature: Budget Budget Accounts
       | accountCurrency    | 2      |
     And  Save form
     Then Success message shuld be diplayed
-
+  @Regression
   Scenario: Delete The Budget Account
     Given Navigate to Budget Accounts page
     When Delete the Budget Accounts "Maas1"

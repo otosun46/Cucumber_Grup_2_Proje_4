@@ -4,21 +4,21 @@ Feature: Human Resources Salary Type
     Given Navigate to basqar
     When Enter username and password and click Login button
     Then User should login successfully
-
+  @Regression
   Scenario: Create a New Salary Type
     Given Navigate to salary type page
     When Create a new salary type name as "User_1"
     And Click and Select options form class
       | userType | User |
     Then Success message shuld be diplayed
-
+  @Regression
   Scenario: Edit the salary type
     Given Navigate to salary type page
     When Edit the salary type "User_1" to "User_11"
     And Click and edit options form class
       | userType | Student |
     Then Success message shuld be diplayed
-
+  @Regression
   Scenario: Delete the salary type
     Given Navigate to salary type page
     When Delete the salary type "User_11"

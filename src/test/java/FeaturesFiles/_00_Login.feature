@@ -1,5 +1,5 @@
 Feature: Login Function
-
+  @SmokeTest
   Scenario: Login and verify
 
     Given Navigate to basqar webpage
