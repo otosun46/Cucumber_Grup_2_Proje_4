@@ -4,6 +4,7 @@ Feature: Human Resources Salary Modifiers
     Given Navigate to basqar
     When Enter username and password and click Login button
     Then User should login successfully
+
   @Regression
   Scenario: Create a New Salary Modifiers
     Given Navigate to salary modifiers page
@@ -16,7 +17,7 @@ Feature: Human Resources Salary Modifiers
 
     And Click and Select options
       | saModifierType | Subtraction |
-      | saModValueType |0|
+      | saModValueType | 0           |
     When Add new modifier variable and fill out the form
       | saModVaName          | Yeni Degisken |
       | saModFormulaVariable | 3             |
@@ -24,6 +25,7 @@ Feature: Human Resources Salary Modifiers
       | saModVaType | Decimal |
     And Apply changes and save
     Then Success message shuld be diplayed
+
   @Regression
   Scenario: Edit the Salary Modifiers
     Given Navigate to salary modifiers page
@@ -45,6 +47,7 @@ Feature: Human Resources Salary Modifiers
       | saModVaType | Decimal |
     And Apply changes and save
     Then Success message shuld be diplayed
+
   @Regression
   Scenario: Delete the Salary Modifiers
     Given Navigate to salary modifiers page

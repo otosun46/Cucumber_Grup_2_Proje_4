@@ -2,9 +2,7 @@ Feature: Create and delete a city
 
   Background:
     Given Navigate to basqar
-
     When Enter username and password and click Login button
-
     Then User should login successfully
 
   @Regression

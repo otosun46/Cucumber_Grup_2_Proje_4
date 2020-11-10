@@ -4,6 +4,7 @@ Feature: Budget Cost Centers
     Given Navigate to basqar
     When Enter username and password and click Login button
     Then User should login successfully
+
   @Regression
   Scenario: Create a Cost Centers
     Given Navigate to Cost Centers page
@@ -15,18 +16,20 @@ Feature: Budget Cost Centers
       | coCeType           | 2 |
       | coCeExAcCoPrefixes | 1 |
     Then Success message shuld be diplayed
+
   @Regression
   Scenario: Edit the Cost Centers
     Given Navigate to Cost Centers page
     And Edit the Cost Centers "Garanti"
     When Edit the Cost Centers and fill out the form
       | nameInput   | Garanti1 |
-      | codeInput   | 2512   |
-      | coCeOrderNo | 6       |
+      | codeInput   | 2512     |
+      | coCeOrderNo | 6        |
     And Click and Select options form class
       | coCeType           | 2 |
       | coCeExAcCoPrefixes | 2 |
     Then Success message shuld be diplayed
+
   @Regression
   Scenario: Delete the Cost Centers
     Given Navigate to Cost Centers page

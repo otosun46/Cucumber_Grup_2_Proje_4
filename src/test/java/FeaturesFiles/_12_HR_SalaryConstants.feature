@@ -4,6 +4,7 @@ Feature: Human Resources Salary Constants
     Given Navigate to basqar
     When Enter username and password and click Login button
     Then User should login successfully
+
   @Regression
   Scenario: Create a Salary Constants
     Given Navigate to Salary Costants page
@@ -13,6 +14,7 @@ Feature: Human Resources Salary Constants
       | saCoValue | 300      |
 #      | saCoValidFrom | 10/12/2020       |
     When Click "saCoValidFrom" and send Date "10/12/2020"
+
   @Regression
   Scenario: Edit the Salary Constants
     Given Navigate to Salary Costants page
@@ -23,6 +25,7 @@ Feature: Human Resources Salary Constants
       | saCoValue | 350       |
 #      | saCoValidFrom | 10/12/2020       |
     Then Click "saCoValidFrom" and send Date "10/12/2020"
+
   @Regression
   Scenario: Delete the Salary Constants
     Given Navigate to Salary Costants page

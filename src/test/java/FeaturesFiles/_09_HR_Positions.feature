@@ -4,16 +4,19 @@ Feature: Human Resources Positions
     Given Navigate to basqar
     When Enter username and password and click Login button
     Then User should login successfully
+
   @Regression
   Scenario: Create a positions
     Given Navigate to Positions page
     When Create a positions as "Robotics Teacher" short name "ROTE"
     Then Success message shuld be diplayed
+
   @Regression
   Scenario: Edit the positions
     Given Navigate to Positions page
     When Edit the "Robotics Teacher" "ROTE" to "Make Teacher" "MATE"
     Then Success message shuld be diplayed
+
   @Regression
   Scenario: Delete the positions
     Given Navigate to Positions page
