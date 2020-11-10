@@ -5,6 +5,7 @@ Feature: Human Resources Salary Modifiers
     When Enter username and password and click Login button
     Then User should login successfully
 
+  @Regression
   Scenario: Create a New Salary Modifiers
     Given Navigate to salary modifiers page
     When Add new salary modifier and fill out the form
@@ -16,7 +17,7 @@ Feature: Human Resources Salary Modifiers
 
     And Click and Select options
       | saModifierType | Subtraction |
-      | saModValueType |0|
+      | saModValueType | 0           |
     When Add new modifier variable and fill out the form
       | saModVaName          | Yeni Degisken |
       | saModFormulaVariable | 3             |
@@ -25,6 +26,7 @@ Feature: Human Resources Salary Modifiers
     And Apply changes and save
     Then Success message shuld be diplayed
 
+  @Regression
   Scenario: Edit the Salary Modifiers
     Given Navigate to salary modifiers page
     When Edit the Salary Modifier "Katsayi"
@@ -46,6 +48,7 @@ Feature: Human Resources Salary Modifiers
     And Apply changes and save
     Then Success message shuld be diplayed
 
+  @Regression
   Scenario: Delete the Salary Modifiers
     Given Navigate to salary modifiers page
     When Delete the Salary Modifiers "Katsayi1"

@@ -5,6 +5,7 @@ Feature: Create a country and a city again, then delete the country
     When Enter username and password and click Login button
     Then User should login successfully
 
+  @Regression
   Scenario: Create a country and a city
 
     Given Click Setup -> Parameters -> Countries

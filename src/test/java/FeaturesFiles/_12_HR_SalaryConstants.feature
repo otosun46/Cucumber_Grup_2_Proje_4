@@ -5,6 +5,7 @@ Feature: Human Resources Salary Constants
     When Enter username and password and click Login button
     Then User should login successfully
 
+  @Regression
   Scenario: Create a Salary Constants
     Given Navigate to Salary Costants page
     When Add new Salary Costant and fill out the form
@@ -14,6 +15,7 @@ Feature: Human Resources Salary Constants
 #      | saCoValidFrom | 10/12/2020       |
     When Click "saCoValidFrom" and send Date "10/12/2020"
 
+  @Regression
   Scenario: Edit the Salary Constants
     Given Navigate to Salary Costants page
     And Edit the Salary Constants "Tazminat"
@@ -24,6 +26,7 @@ Feature: Human Resources Salary Constants
 #      | saCoValidFrom | 10/12/2020       |
     Then Click "saCoValidFrom" and send Date "10/12/2020"
 
+  @Regression
   Scenario: Delete the Salary Constants
     Given Navigate to Salary Costants page
     When Delete the Salary Constants "Tazminat1"
