@@ -22,14 +22,15 @@ public class _Parent {
     WebDriver driver;
     WebDriverWait wait;
     WebElement myElement;
-    List<WebElement> myElementList=new ArrayList<>();
+    List<WebElement> myElementList = new ArrayList<>();
 
 
     public _Parent() {
-        driver=Driver.getDriver();
-        wait=new WebDriverWait(driver,10);
-        PageFactory.initElements(driver,this);
+        driver = Driver.getDriver();
+        wait = new WebDriverWait(driver, 10);
+        PageFactory.initElements(driver, this);
     }
+
     public void clickFunction(WebElement element) {
         waitUntilClickable(element);// eleman clikable olana kadar bekle
 //        scrollToElement(element); // eleman kadar scroll yap
@@ -42,9 +43,10 @@ public class _Parent {
         element.clear();// eleman clear yap
         element.sendKeys(value);// value yi gönder
     }
-    public void countrySelect(WebElement element, String country){
 
-        Select menu= new Select(element);
+    public void countrySelect(WebElement element, String country) {
+
+        Select menu = new Select(element);
         menu.selectByVisibleText(country);
     }
 
@@ -89,12 +91,20 @@ public class _Parent {
         return str.matches("-?\\d+(\\.\\d+)?");
     }
 
+    public static boolean isValueColor(String str) {
+        str = str.replaceAll(" ", "");
+        return str.matches("rgb\\((\\d{1,3}),(\\d{1,3}),(\\d{1,3})\\)");
+    }
+    //color: white; background-color: rgb(255, 23, 68);
+
     public void selectOptionByString(List<WebElement> elementList, String str) {
         str = str.trim();
         if (girdiSayiMi(str)) {
             if (Integer.parseInt(str) < elementList.size()) {
                 clickFunction(selectOptions(elementList, Integer.parseInt(str)));
             }
+        } else if (isValueColor(str)) {
+            clickFunction(selectOptionColor(elementList, str));
         } else {
             clickFunction(selectOptions(elementList, str));
         }
@@ -104,6 +114,21 @@ public class _Parent {
         WebElement elementSelected = null;
         for (WebElement element : elementList) {
             if (element.getText().toLowerCase().contains(value.toLowerCase())) {
+                elementSelected = element;
+                break;
+            }
+        }
+        return elementSelected;
+    }
+
+    public WebElement selectOptionColor(List<WebElement> elementList, String value) {
+        value = value.replaceAll(" ", "");
+        WebElement elementSelected = null;
+        for (WebElement element : elementList) {
+            String style = element.getAttribute("style");
+            System.out.println(style);
+            style = style.replaceAll(" ", "");
+            if (style.contains(value.toLowerCase())) {
                 elementSelected = element;
                 break;
             }
@@ -126,7 +151,7 @@ public class _Parent {
         driver.switchTo().window(anasayfaidsi);
     }
 
-    public void isMyTextDisplayed(WebElement element){
+    public void isMyTextDisplayed(WebElement element) {
         Assert.assertTrue(element.isDisplayed(), "WebElement bulunamadi.");
     }
 
@@ -141,7 +166,8 @@ public class _Parent {
             System.out.println("------------------------------------------------------------");
         }
     }
-    public void pagesClosed(){
+
+    public void pagesClosed() {
 
         Set<String> sayfaidleri = driver.getWindowHandles();
         String anasayfaidsi = driver.getWindowHandle();

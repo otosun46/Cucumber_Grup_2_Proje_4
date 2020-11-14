@@ -34,7 +34,7 @@ public class _11_CreateSubjectSteps {
         templateContent.findElementAndSelectOption("subCategoryList", "Science");
 
         templateContent.findElementAndClickFunction("styleSelect");
-        templateContent.findElementAndSelectOption("option", "7");
+        templateContent.findElementAndSelectOption("option", "rgb(32,0,250)");
         templateContent.findElementAndClickFunction("saveButton");
         templateContent.findElementAndVerifyContainsText("msjContainer", "successfully");
     }
