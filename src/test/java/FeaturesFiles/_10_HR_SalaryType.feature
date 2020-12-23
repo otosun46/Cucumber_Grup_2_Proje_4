@@ -5,7 +5,7 @@ Feature: Human Resources Salary Type
     When Enter username and password and click Login button
     Then User should login successfully
 
-  @Regression
+  @Regression1
   Scenario: Create a New Salary Type
     Given Navigate to salary type page
     When Create a new salary type name as "User_1"
@@ -13,7 +13,7 @@ Feature: Human Resources Salary Type
       | userType | User |
     Then Success message shuld be diplayed
 
-  @Regression
+  @Regression1
   Scenario: Edit the salary type
     Given Navigate to salary type page
     When Edit the salary type "User_1" to "User_11"
@@ -21,7 +21,7 @@ Feature: Human Resources Salary Type
       | userType | Student |
     Then Success message shuld be diplayed
 
-  @Regression
+  @Regression1
   Scenario: Delete the salary type
     Given Navigate to salary type page
     When Delete the salary type "User_11"

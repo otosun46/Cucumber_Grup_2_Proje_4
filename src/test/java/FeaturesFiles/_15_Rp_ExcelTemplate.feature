@@ -5,7 +5,7 @@ Feature: Report Excel Template
     When Enter username and password and click Login button
     Then User should login successfully
 
-  @Regression
+  @Regression1
   Scenario: Create a Excel Template
     Given Navigate to Excel Template page
     When Add new Excel Template and fill out the form
@@ -15,7 +15,7 @@ Feature: Report Excel Template
     Then Success message shuld be diplayed
     Given Close the dialog
 
-  @Regression
+  @Regression1
   Scenario: Edit the Excel Template
     Given Navigate to Excel Template page
     When Edit the "Report2" and change out the form
@@ -25,7 +25,7 @@ Feature: Report Excel Template
     Then Success message shuld be diplayed
     Given Close the dialog
 
-  @Regression
+  @Regression1
   Scenario: Delete the Excel Template
     Given Navigate to Excel Template page
     When Delete the Excel Template "Report3"

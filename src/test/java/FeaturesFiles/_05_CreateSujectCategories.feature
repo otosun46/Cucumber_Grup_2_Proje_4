@@ -5,13 +5,13 @@ Feature: Create Subject Categories and Delete
     When Enter username and password and click Login button
     Then User should login successfully
 
-  @Regression
+  @Regression1
   Scenario: Create a Subject Categories
     When Navigate to Subject Categories
     When Create a subject categories name as "Physiology1" and code as "PHY1011"
     Then Success message should be displayed
 
-  @Regression
+  @Regression1
   Scenario: Delete a Subject Categories
     When Navigate to Subject Categories
     When Delete subject categories name as "Physiology1"
