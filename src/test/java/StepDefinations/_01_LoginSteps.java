@@ -27,9 +27,6 @@ public class _01_LoginSteps {
 
     @When("^Enter username and password and click Login button$")
     public void enterUsernameAndPasswordAndClickLoginButton() {
-
-        TemplateContent templateContent = new TemplateContent();
-
         templateContent.findElementAndSendKeysFunction("username","daulet2030@gmail.com");
         templateContent.findElementAndSendKeysFunction("password","TechnoStudy123@");
         templateContent.findElementAndClickFunction("loginButton");
@@ -39,7 +36,6 @@ public class _01_LoginSteps {
 
     @Then("^User should login successfully$")
     public void userShouldLoginSuccessfully() {
-
         templateContent.findElementAndVerifyDisplayed("setupOne");
     }
 }

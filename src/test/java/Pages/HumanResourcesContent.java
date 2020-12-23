@@ -16,7 +16,7 @@ import java.util.List;
 public class HumanResourcesContent extends _Parent {
     /********************** WEBELEMENT *************************/
 
-    @FindBy(xpath = "//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")//TITLE.ADD ifadesinden TITLE cikarildi oncekiler kontrol edilecek
+    @FindBy(xpath = "//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")
     private WebElement addButton;
 
     @FindBy(xpath = "//div[@id='toast-container']")
@@ -103,7 +103,6 @@ public class HumanResourcesContent extends _Parent {
     @FindBy(css = "ms-integer-field[formcontrolname='value']>input")
     private WebElement saCoValue;
 
-   // @FindBy(css = "mat-datepicker-toggle>button")
     @FindBy(css = "input[name='datePickerControl']")
     private WebElement datepickerButton;
 
@@ -202,7 +201,7 @@ public class HumanResourcesContent extends _Parent {
     })
     public List<WebElement> dayOfMonth;
 
-    /********************** METODS *************************/
+    /********************** METHODS *************************/
     /**
      * Finds and returns the WebElement whose name is entered as a parameter.
      *
@@ -350,7 +349,6 @@ public class HumanResourcesContent extends _Parent {
                 myElement = excTmpAddButton;
                 break;
         }
-        beklet(250);
         return myElement;
     }
 
