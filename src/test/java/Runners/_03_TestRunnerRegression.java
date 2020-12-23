@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 @CucumberOptions(
-        tags = {"@Regression1"},
+        tags = {"@Regression2"},
         features = {"src/test/java/FeaturesFiles"},
         glue = {"StepDefinations"},
         dryRun = false,
